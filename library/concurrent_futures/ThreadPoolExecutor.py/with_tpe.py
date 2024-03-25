@@ -14,6 +14,10 @@ if __name__ == '__main__':
         print(result)
     end_time = time.time()
     print("Total time used", end_time - start_time)
+    with ThreadPoolExecutor(max_workers=10) as executor:
+        results = list(executor.map(scrape_page,range(20,40)))
+    for result in results:
+        print(result)
 
 '''Results
 ---
